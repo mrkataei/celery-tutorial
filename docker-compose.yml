@@ -8,10 +8,10 @@ services:
   django:
     container_name: django
     build:
-      context: ./celery
+      context: ./dcelery
     command: python manage.py runserver 0.0.0.0:8000
     volumes:  
-      - ./celery:/usr/src/app/
+      - ./dcelery:/usr/src/app/
     ports:
       - 8001:8000
     environment:
@@ -24,9 +24,9 @@ services:
   celery:
     container_name: celery
     build:
-      context: ./celery
+      context: ./dcelery
     volumes:  
-      - ./celery:/usr/src/app/
+      - ./dcelery:/usr/src/app/
     environment:
       - DEBUG=1
       - SECRET_KEY=ldkajslkasjlkadj 
